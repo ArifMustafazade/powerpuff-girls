@@ -10,7 +10,7 @@ describe('<App />', () => {
 
     beforeEach(() => {
         wrapper = shallow(<App />);
-    })
+    });
 
     test('should match snapshot', () => {
         expect(wrapper).toMatchSnapshot();
@@ -19,8 +19,4 @@ describe('<App />', () => {
     test('should render with correct title', () => {
         expect(wrapper.find('.App-header').text()).toBe('Hello');
     });
-
-})
-
-
-
+});
