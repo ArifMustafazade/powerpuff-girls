@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EpisodeListItem /> should match snapshot 1`] = `
+<Link
+  className="episodes__episode"
+  to="/episodes/1"
+>
+  <p
+    className="episodes__episode-season"
+  >
+    Season: 1
+  </p>
+  <p
+    className="episodes__episode-number"
+  >
+    Number: 1
+  </p>
+</Link>
+`;

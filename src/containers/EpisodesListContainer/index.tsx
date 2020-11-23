@@ -6,30 +6,24 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 
 // interfaces
-import { IEpisodesListProps } from './models';
+import { IEpisodesListContainerProps } from './models';
 import { IStore, IActionType } from '../../store/models';
 
 // components
-import { EpisodeListItem } from '../../components';
+import { EpisodesList } from '../../components';
 
-class EpisodesListComponent extends React.Component<IEpisodesListProps> {
+class EpisodesListContainerComponent extends React.Component<IEpisodesListContainerProps> {
     componentDidMount = (): void => {
         const { onGetEpisodesList } = this.props;
         onGetEpisodesList();
     };
 
     render(): React.ReactNode {
-        const {
-            episodesList: { episodes },
-        } = this.props;
+        const { episodesList } = this.props;
         return (
             <div className="episodes">
                 <h2 className="episodes__title">Episodes List</h2>
-                <div className="episodes__container">
-                    {episodes?.map((episode) => (
-                        <EpisodeListItem key={episode?.id} episode={episode} />
-                    ))}
-                </div>
+                <EpisodesList {...episodesList} />
             </div>
         );
     }
@@ -47,4 +41,4 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<IStore, unknown, IActionType
     };
 };
 
-export const EpisodesList = connect(mapStateToProps, mapDispatchToProps)(EpisodesListComponent);
+export const EpisodesListContainer = connect(mapStateToProps, mapDispatchToProps)(EpisodesListContainerComponent);

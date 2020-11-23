@@ -13,3 +13,5 @@ export const apiUrls = {
 export const errorTypes = {
     serverError: 'serverError',
 };
+
+export const errorMessage = 'Data is currently unavailable';

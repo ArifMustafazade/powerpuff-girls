@@ -2,12 +2,12 @@
 import { IApiHandlerResponse } from './models';
 
 // constants
-import { errorTypes } from './constants';
+import { errorTypes, errorMessage } from './constants';
 
 /** @helpers */
 
 // in case of server error
-export const returnServerError = (errorMessage: string): IApiHandlerResponse<never> => {
+export const returnServerError = (): IApiHandlerResponse<never> => {
     return {
         status: false,
         errorType: errorTypes.serverError,

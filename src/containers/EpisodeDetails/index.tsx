@@ -18,6 +18,7 @@ class EpisodeDetailsComponent extends React.Component<IEpisodeDetailsProps, IEpi
     state: IEpisodeDetailsState = {
         episode: null,
         error: false,
+        errorMessage: '',
         loading: false,
     };
 
@@ -47,16 +48,15 @@ class EpisodeDetailsComponent extends React.Component<IEpisodeDetailsProps, IEpi
             this.setState({ episode: getEpisodeByIdResponse?.data, loading: false });
             return;
         }
-        this.setState({ error: true, loading: false });
+        this.setState({ error: true, loading: false, errorMessage: getEpisodeByIdResponse.errorMessage });
     };
 
     render(): React.ReactNode {
-        const { episode } = this.state;
         return (
             <div className="episode-details">
-                <h1 className="episode-details__title"> Episode Detail </h1>
+                <h1 className="episode-details__title">Episode Detail</h1>
                 <div className="episode-details__summary">
-                    <EpisodeSummary episode={episode} />
+                    <EpisodeSummary {...this.state} />
                 </div>
             </div>
         );

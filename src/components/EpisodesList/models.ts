@@ -1,10 +1,9 @@
-// interface
+// interfaces
 import { IEpisode } from '../../common/models';
 
 /** @interfaces */
-
-export interface IEpisodeSummaryProps {
-    episode: IEpisode;
+export interface IEpisodesListProps {
+    episodes: IEpisode[];
     loading: boolean;
     error: boolean;
     errorMessage: string;

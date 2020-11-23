@@ -11,5 +11,6 @@ export interface IEpisodeDetailsProps extends RouteComponentProps<{ id: string }
 export interface IEpisodeDetailsState {
     episode: IEpisode;
     error: boolean;
+    errorMessage: string;
     loading: boolean;
 }

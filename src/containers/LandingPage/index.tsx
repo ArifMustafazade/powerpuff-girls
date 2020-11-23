@@ -11,7 +11,7 @@ import { IStore, IActionType } from '../../store/models';
 
 // components
 import { TVShowDetails } from '../../components';
-import { EpisodesList } from '../EpisodesList';
+import { EpisodesListContainer } from '../EpisodesListContainer';
 
 class LandingPageComponent extends React.Component<ILandingPageProps> {
     componentDidMount = (): void => {
@@ -23,12 +23,12 @@ class LandingPageComponent extends React.Component<ILandingPageProps> {
         const { showDetails } = this.props;
         return (
             <div className="landing-page">
-                <h1 className="landing-page__title"> Landing Page </h1>
+                <h1 className="landing-page__title">Landing Page</h1>
                 <div className="landing-page__show-details">
                     <TVShowDetails {...showDetails} />
                 </div>
                 <div className="landing-page__episodes-list">
-                    <EpisodesList />
+                    <EpisodesListContainer />
                 </div>
             </div>
         );

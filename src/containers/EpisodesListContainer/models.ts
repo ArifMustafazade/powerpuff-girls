@@ -2,7 +2,7 @@
 import { IEpisodesState } from '../../store/models';
 
 /** @interfaces */
-export interface IEpisodesListProps {
+export interface IEpisodesListContainerProps {
     episodesList: IEpisodesState;
     onGetEpisodesList: () => void;
 }

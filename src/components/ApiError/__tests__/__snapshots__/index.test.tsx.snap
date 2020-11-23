@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ApiError /> should match snapshot 1`] = `
+<div
+  className="error"
+>
+  <p
+    className="error__message"
+  >
+    TEST_ERROR
+  </p>
+</div>
+`;

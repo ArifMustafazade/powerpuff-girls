@@ -12,6 +12,10 @@ export interface IActionType {
     errorType?: string;
 }
 
+export interface IProperty<T> {
+    [key: string]: string | boolean | T;
+}
+
 export interface IStore {
     showDetails: IDetailsState;
     episodesList: IEpisodesState;

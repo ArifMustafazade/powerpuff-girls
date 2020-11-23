@@ -2,7 +2,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 // interfaces
-import { IEpisodesState, IActionType } from '../models';
+import { IEpisodesState, IActionType, IProperty } from '../models';
+import { IEpisode } from '../../common/models';
 
 // helpers
 import { updateState } from '../../common/helpers';
@@ -19,11 +20,19 @@ const initialState: IEpisodesState = {
 const reducer = (state = initialState, action: IActionType): IEpisodesState => {
     switch (action.type) {
         case actionTypes.GET_EPISODES_LIST_START:
-            return updateState(state, { loading: true });
+            return updateState<IEpisodesState, IProperty<IEpisode[]>>(state, { loading: true });
         case actionTypes.GET_EPISODES_LIST_SUCCESS:
-            return updateState(state, { loading: false, episodes: action.episodes });
+            return updateState<IEpisodesState, IProperty<IEpisode[]>>(state, {
+                loading: false,
+                episodes: action.episodes,
+            });
         case actionTypes.GET_EPISODES_LIST_FAIL:
-            return updateState(state, { loading: false, error: true });
+            return updateState<IEpisodesState, IProperty<IEpisode[]>>(state, {
+                loading: false,
+                error: true,
+                errorMessage: action.errorMessage,
+                errorType: action.errorType,
+            });
         default:
             return state;
     }

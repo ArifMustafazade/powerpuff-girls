@@ -11,24 +11,7 @@ import { IGetShowDetailsResponse, IGetEpisodesListResponse, IGetEpisodeByIdRespo
 import { IApiHandlerResponse } from '../common/models';
 
 /** @handlers */
-
-export const handleGetShowDetails = (data: IGetShowDetailsResponse): IApiHandlerResponse<IGetShowDetailsResponse> => {
-    return {
-        status: true,
-        data,
-    };
-};
-
-export const handleGetEpisodesList = (
-    data: IGetEpisodesListResponse,
-): IApiHandlerResponse<IGetEpisodesListResponse> => {
-    return {
-        status: true,
-        data,
-    };
-};
-
-export const handleGetEpisodeById = (data: IGetEpisodeByIdResponse): IApiHandlerResponse<IGetEpisodeByIdResponse> => {
+export const handleApiResponse = <T>(data: T): IApiHandlerResponse<T> => {
     return {
         status: true,
         data,
@@ -36,24 +19,23 @@ export const handleGetEpisodeById = (data: IGetEpisodeByIdResponse): IApiHandler
 };
 
 /** @services */
-
 export const getShowDetails = async (): Promise<IApiHandlerResponse<IGetShowDetailsResponse>> => {
     return axios
         .get<IGetShowDetailsResponse>(apiUrls.getShowDetailsById)
-        .then(({ data }) => handleGetShowDetails(data))
-        .catch((error) => returnServerError(error));
+        .then(({ data }) => handleApiResponse<IGetShowDetailsResponse>(data))
+        .catch(() => returnServerError());
 };
 
 export const getEpisodesList = async (): Promise<IApiHandlerResponse<IGetEpisodesListResponse>> => {
     return axios
         .get<IGetEpisodesListResponse>(apiUrls.getEpisodesListById)
-        .then(({ data }) => handleGetEpisodesList(data))
-        .catch((error) => returnServerError(error));
+        .then(({ data }) => handleApiResponse<IGetEpisodesListResponse>(data))
+        .catch(() => returnServerError());
 };
 
 export const getEpisodeById = async (episodeId: number): Promise<IApiHandlerResponse<IGetEpisodeByIdResponse>> => {
     return axios
         .get<IGetEpisodeByIdResponse>(`${apiUrls.getEpisodeById}/${episodeId}`)
-        .then(({ data }) => handleGetEpisodeById(data))
-        .catch((error) => returnServerError(error));
+        .then(({ data }) => handleApiResponse<IGetEpisodeByIdResponse>(data))
+        .catch(() => returnServerError());
 };

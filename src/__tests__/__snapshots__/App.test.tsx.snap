@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should match snapshot 1`] = `
+<BrowserRouter>
+  <div
+    className="app"
+  >
+    <header
+      className="App-header"
+    >
+      Header
+    </header>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/episodes/:id"
+    />
+  </div>
+</BrowserRouter>
+`;
