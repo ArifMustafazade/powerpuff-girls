@@ -1,14 +1,22 @@
 .details {
     &__info-container {
         display: flex;
+        flex-wrap: wrap;
     }
 
     &__image-container {
-        width: 30%;
+        width: 28%;
         margin: 5px;
     }
 
     &__description {
         width: 70%;
+    }
+
+    &__image-container,
+    &__description {
+        @include media-tablet {
+            width: 100%;
+        }
     }
 }

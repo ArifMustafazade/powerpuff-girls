@@ -1,0 +1,12 @@
+img {
+    @include media-tablet {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+
+    @include media-mobile {
+        width: 100%;
+    }
+}
