@@ -17,6 +17,6 @@ describe('<App />', () => {
     });
 
     test('should render with correct title', () => {
-        expect(wrapper.find('.App-header').text()).toBe('Hello');
+        expect(wrapper.find('.App-header').text()).toBe('Header');
     });
 });

@@ -1,0 +1,14 @@
+.details {
+    &__info-container {
+        display: flex;
+    }
+
+    &__image-container {
+        width: 30%;
+        margin: 5px;
+    }
+
+    &__description {
+        width: 70%;
+    }
+}

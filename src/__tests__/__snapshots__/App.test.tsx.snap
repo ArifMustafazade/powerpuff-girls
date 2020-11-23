@@ -1,13 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should match snapshot 1`] = `
-<div
-  className="App"
->
-  <header
-    className="App-header"
+<BrowserRouter>
+  <div
+    className="App"
   >
-    Hello
-  </header>
-</div>
+    <header
+      className="App-header"
+    >
+      Header
+    </header>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/"
+    />
+    <footer
+      className="App-footer"
+    >
+      Footer
+    </footer>
+  </div>
+</BrowserRouter>
 `;
