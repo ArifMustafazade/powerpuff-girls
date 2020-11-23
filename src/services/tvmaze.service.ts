@@ -7,7 +7,7 @@ import { apiUrls } from '../common/constants';
 import { returnServerError } from '../common/helpers';
 
 // interfaces
-import { IGetShowDetailsResponse, IGetEpisodesListResponse } from './models';
+import { IGetShowDetailsResponse, IGetEpisodesListResponse, IGetEpisodeByIdResponse } from './models';
 import { IApiHandlerResponse } from '../common/models';
 
 /** @handlers */
@@ -28,6 +28,13 @@ export const handleGetEpisodesList = (
     };
 };
 
+export const handleGetEpisodeById = (data: IGetEpisodeByIdResponse): IApiHandlerResponse<IGetEpisodeByIdResponse> => {
+    return {
+        status: true,
+        data,
+    };
+};
+
 /** @services */
 
 export const getShowDetails = async (): Promise<IApiHandlerResponse<IGetShowDetailsResponse>> => {
@@ -41,5 +48,12 @@ export const getEpisodesList = async (): Promise<IApiHandlerResponse<IGetEpisode
     return axios
         .get<IGetEpisodesListResponse>(apiUrls.getEpisodesListById)
         .then(({ data }) => handleGetEpisodesList(data))
+        .catch((error) => returnServerError(error));
+};
+
+export const getEpisodeById = async (episodeId: number): Promise<IApiHandlerResponse<IGetEpisodeByIdResponse>> => {
+    return axios
+        .get<IGetEpisodeByIdResponse>(`${apiUrls.getEpisodeById}/${episodeId}`)
+        .then(({ data }) => handleGetEpisodeById(data))
         .catch((error) => returnServerError(error));
 };

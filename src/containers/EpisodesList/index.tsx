@@ -6,20 +6,30 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 
 // interfaces
-import { IEpisodesListProps, IEpisodesListState } from './models';
+import { IEpisodesListProps } from './models';
 import { IStore, IActionType } from '../../store/models';
 
-class EpisodesListComponent extends React.Component<IEpisodesListProps, IEpisodesListState> {
+// components
+import { EpisodeListItem } from '../../components';
+
+class EpisodesListComponent extends React.Component<IEpisodesListProps> {
     componentDidMount = (): void => {
         const { onGetEpisodesList } = this.props;
         onGetEpisodesList();
     };
 
     render(): React.ReactNode {
+        const {
+            episodesList: { episodes },
+        } = this.props;
         return (
             <div className="episodes">
                 <h2 className="episodes__title">Episodes List</h2>
-                <div className="episodes__container"></div>
+                <div className="episodes__container">
+                    {episodes?.map((episode) => (
+                        <EpisodeListItem key={episode?.id} episode={episode} />
+                    ))}
+                </div>
             </div>
         );
     }
@@ -27,7 +37,7 @@ class EpisodesListComponent extends React.Component<IEpisodesListProps, IEpisode
 
 const mapStateToProps = (state: IStore) => {
     return {
-        episodes: state.episodes,
+        episodesList: state.episodesList,
     };
 };
 

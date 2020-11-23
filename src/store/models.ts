@@ -14,7 +14,7 @@ export interface IActionType {
 
 export interface IStore {
     showDetails: IDetailsState;
-    episodes: IEpisodesState;
+    episodesList: IEpisodesState;
 }
 
 export interface IDetailsState {

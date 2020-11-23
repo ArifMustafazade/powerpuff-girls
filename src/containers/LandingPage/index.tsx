@@ -6,14 +6,14 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 
 // interfaces
-import { ILandingPageProps, ILandingPageState } from './models';
+import { ILandingPageProps } from './models';
 import { IStore, IActionType } from '../../store/models';
 
 // components
-import { TVShowDetails } from '../../components/TVShowDetails';
+import { TVShowDetails } from '../../components';
 import { EpisodesList } from '../EpisodesList';
 
-class LandingPageComponent extends React.Component<ILandingPageProps, ILandingPageState> {
+class LandingPageComponent extends React.Component<ILandingPageProps> {
     componentDidMount = (): void => {
         const { onGetShowDetails } = this.props;
         onGetShowDetails();

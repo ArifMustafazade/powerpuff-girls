@@ -6,7 +6,7 @@ import App from '../App';
 
 /** tests */
 describe('<App />', () => {
-    let wrapper: ShallowWrapper<any>;
+    let wrapper: ShallowWrapper;
 
     beforeEach(() => {
         wrapper = shallow(<App />);

@@ -5,9 +5,7 @@ import sanitizeHtml from 'sanitize-html';
 import { ITVShowDetailsProps } from './models';
 
 export const TVShowDetails = (props: ITVShowDetailsProps): JSX.Element => {
-    console.log('props: ', props);
     const { details } = props;
-
     return (
         <div className="details">
             <h2 className="details__title">{details?.name}</h2>

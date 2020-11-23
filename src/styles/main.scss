@@ -1,3 +1,4 @@
+@import './abstracts/variables.scss';
 @import './components/components.scss';
 
 /** default styles */
@@ -11,4 +12,8 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.App-header {
+    visibility: hidden;
 }
